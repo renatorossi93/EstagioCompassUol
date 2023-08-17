@@ -1,6 +1,6 @@
 # **NESSA SPRINT ESTURAREMOS**
 
-<li>
+<lu>
  User Stories & Issues.
  Conceitos Básicos para testes de API.
  Testes Estáticos.
@@ -13,14 +13,14 @@
  Mapas mentais e testes.
  Introdução ao Postman.
  Ferramentas de apoio ao QA.
-</li>
+</lu>
 
 # ***CHALLENGE DA SPRINT 2**
 
 **MERGULHAREMOS EM TESTES DE APIs!**
 
 **Devemos:**
-<li>
+<lu>
  Usar Git e Gitlab.
  Criar nova branch nomeada: pb_sprint2.
  Apresentação de no máximo 3 minutos.
@@ -29,6 +29,6 @@
  Na apresentação cobrir o mapa mental criado como auxiliar na análise.
  Na apresentação cobrir os Issues criados no Gitlab.
  Na apresentação cobrir os requests criados no Postman.
-</li>
+</lu>
 
 **OBS: *Caso tivermos ajuda de algum colega, citá-lo no readme ou diretamente no código/texto criado.***
