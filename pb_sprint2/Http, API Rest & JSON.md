@@ -55,4 +55,4 @@ O que são Verbos HTTP e o que é Status code?
 
 ## API REST vs API RESTful
 
-![rest&restful](image-4.png)
+![rest&restful](assets/image-4.png)
