@@ -66,3 +66,13 @@ ENTÃO:
 ## API REST vs API RESTful
 
 ![rest&restful](assets/image-4.png)
+
+## INTRODUÇÃO AO JSON
+
+### O que é JSON?
+
+JSON (JavaScript Object Notation) é um modelo para armazenamento e transmissão de informações no formato texto. Apesar de muito simples, tem sido bastante utilizado por aplicações Web devido a sua capacidade de estruturar informações de uma forma bem mais compacta do que a conseguida pelo modelo XML, tornando mais rápido o parsing dessas informações. Isto explica o fato de o JSON ter sido adotado por empresas como Google e Yahoo, cujas aplicações precisam transmitir grandes volumes de dados.
+
+### SINTAXE NO JSON
+
+![jsonsintaxes](assets/image-7.jpeg)
