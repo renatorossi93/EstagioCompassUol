@@ -30,12 +30,29 @@ As principais diferenças entre os dois e qual seria considerado melhor para cad
 
 ![monolith&microservices](image.png)
 
-### MONOLITHIC
+## INTRODUÇÃO A APIs
 
-**PRINCIPAIS VANTAGENS:**
+### O que é uma api?
 
-Fácil de entender, curva de aprendizado.
+A sigla API ou 'Interface de Programação de Aplicações' refere-se a serviços que são uma forma de integrar sistemas, possibilitando
+benefícios como a segurança dos dados, facilidade no intercâmbio entre informações com diferentes linguagens de programação e a
+monetização de acessos.Nos slides a seguir vamos nos aprofundar mais para entendermos melhoro que é API.
 
-**PRINCIPAIS DESVANTAGENS:**
+![vantagensAPI](image-1.png)
 
-Escalabilidade, dependência entre componentes.
+## INTRODUÇÃO AO HTTP
+
+HTTP ou Hyper Text Transfer Protocol, é um protocolo usado para obter recursos, como por exemplo documentos HTML que 
+vemos e utilizamos diariamente na WEB e além disso servem também para intermediar a comunicação com APIs.
+
+![http&requests&responses](image-2.png)
+
+### Verbos HTTP e Status Code
+
+O que são Verbos HTTP e o que é Status code?
+
+![httpverbs&statuscode](image-3.png)
+
+## API REST vs API RESTful
+
+![rest&restful](image-4.png)
