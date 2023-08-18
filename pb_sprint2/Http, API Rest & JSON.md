@@ -51,6 +51,16 @@ vemos e utilizamos diariamente na WEB e além disso servem também para intermed
 
 O que são Verbos HTTP e o que é Status code?
 
+**VERBOS HTTP:**
+
+![httpverbs](assets/image-5.jpeg)
+
+**STATUS CODE:**
+
+![statuscode](assets/image-6.jpeg)
+
+ENTÃO:
+
 ![httpverbs&statuscode](assets/image-3.png)
 
 ## API REST vs API RESTful
