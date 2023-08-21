@@ -1,3 +1,5 @@
+# HTTP, API REST & JSON
+
 Imagine que você quer criar um aplicação, por exemplo, de uma bliblioteca.
 
 Então você tem um sistema todo por trás muito complexo, isso pode incluir banco de dados, regras de negócio, etc. E você tem um usuário que irá usar essa bliblioteca online através de uma interface web, por exemplo.
