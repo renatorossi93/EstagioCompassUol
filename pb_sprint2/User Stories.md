@@ -52,7 +52,7 @@ O Example Mapping de um User Story é dividido em:
 - Exemplos da regra
 - Questões Levantadas
 
-*** UM ESQUELETO DE UM EXAMPLE MAPPING DEVERÁ SEGUIR ESTE ESTILO:***
+***UM ESQUELETO DE UM EXAMPLE MAPPING DEVERÁ SEGUIR ESTE ESTILO:***
 ![userstorymap](assets/image-9.jpeg)
 
 
