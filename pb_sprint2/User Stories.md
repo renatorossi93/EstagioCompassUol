@@ -30,5 +30,32 @@ Sendo um vendedor de uma loja, gostaria de poder me cadastrar no Marketplace do 
 - A cobertura de testes deve se basear no Swagger e ir além, cobrindo cenários alternativos.
 
 
-# ESTUDOS SOBRE USER STORIES:
+# COMO ESPECIFICAR REQUISITOS EM PROJETOS DE SOFTWARE UTILIZANDO USER STORIES (COMO MONTAR HISTÓRIAS DE USUÁRIO)
 
+## O QUE SÃO USER STORIES
+
+User stories (histórias de usuários) nada mais é do que uma descrição resumida da feature que você vai implementar para o seu cliente.
+
+Cada história de usuário precisa se *independente, mensurável e testável*
+
+## Example Mapping
+
+O Example Mapping é uma técnica que utilizamos para identificar as coisas que estão ocultas na história do usuário e que vão nos ajudar a mensurar a história e saber quais são os passos que devem ser implementados para que aquela história seja atendida.
+
+Pra isso nós utilizamos o conceito dos 3 amigos, que representam os 3 aspectos diferentes na hora que você está desenvolvendo o sistema, são eles: O cliente, A visão do desenvolvedor e A visão do testador. 
+
+Você não precisa ser ortodoxo e seguir exatamente esse mapping,mas é preciso entender que existem esses 3 papéis principais dentro de um User Story.
+
+O Example Mapping de um User Story é dividido em:
+- Histórias de Usuário
+- Regras da história (critérios)
+- Exemplos da regra
+- Questões Levantadas
+
+*** UM ESQUELETO DE UM EXAMPLE MAPPING DEVERÁ SEGUIR ESTE ESTILO:***
+![userstorymap](assets/image-9.jpeg)
+
+
+## EXERCÍCIO UDEMY DE EXAMPLE MAPPING DESENVOLVIDO EM MIRO:
+
+![meuexamplemapping](assets/image-10.jpeg)
