@@ -78,4 +78,6 @@ Esses tópicos servem como uma sugestão de organização de conteúdo de um pla
 
 - 10 Como os resultados do teste serão divulgados
 
+
+***SEGUE ABAIXO UM TEMPLATE DE SUGESTÃO DE UM DOCUMENTO DE PLANO DE TESTES***
 ![Templateplanodeteste](assets/Plano%20de%20testes%20-%20Design%20de%20Interface%20do%20IFTO.pdf)
