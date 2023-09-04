@@ -30,3 +30,19 @@ Suíte de testes nada mais é do que um agrupamento de casos de teste e serve pa
 - Caso de teste possui um identificador, tipo CT01 (caso de teste 01).
 - Caso de teste possui pré-condições, tipo os igredientes antes de fazer um bolo.
 - Caso de teste possui passos do teste, tipo como se fosse o passo a passo de se fazer um bolo.
+
+### Data Driven e Keyword Driven**
+
+[datadriven_vs_keyworddriven](assets/image-2.jpeg)
+
+### TDD, BDDD E ATDD
+
+- TDD: Desenvolvimento Direcionado por Testes (Test Driven Development)
+
+- BDD: Desenvolvimento Direcionado por Comportamento (Behavior Driven Development)
+
+- ATDD: Desenvolvimento Direcionado por Testes de Aceitação (Acceptance Test Driven Development)
+
+### Testes Unitários
+
+Teste de unidade, ou unitário, é resumidademente um código que eu crio para testar outro código. Pensa na aplicação como uma construção em lego, e um código como cada peçinha de lego que compõe o todo que é a aplicação. Teste unitário seria como testar uma peçinha de lego isoladamente. ***teste unitário só existe automatizado***
