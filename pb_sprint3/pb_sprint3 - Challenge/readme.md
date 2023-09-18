@@ -1,41 +1,138 @@
-# RESUMO
+# PLANO DE TESTES DO CHALLENGE DA SPRINT 3 
 
-***Esta é a documentação da SPRINT 3 do curso de QA da Compass.uol***
+## RESUMO:
 
-**Esse arquivo, ao final da sprint, deve conter:**
-- Criação de um planejamento de testes para a aplicação do challenge desta sprint
-- A especificação da análise da API
-- Mapa mental utilizado para a análise da API
-- Planejamento inicial para criação de testes automatizados para o challenge desta sprint
+Foi requisitado pelo PO um planejamento de testes em uma seção de produtos e de login de uma APIRest chamada ServeRest. Cabe ao QA planejar e executar todos os testes relacionados possíveis e solicitados.
 
-*O planejamento de testes para a aplicação deverá serfeito no início da Sprint e poderá ter modificações ao longo da mesma.*
+## Pessoas Envolvidas (StakeHolders):
 
-*O planejamento deverá incluir as rotas de /usuários, /login e /produtos.*
+Apenas o testador (QA) e o avaliador dos testes estarão envolvidos, em um primeiro momento, neste projeto.
+
+## Funcionalidades ou Módulos a serem testados:
+
+Serão testados os módulos de Login e Produtos da API em um primeiro momento.
+
+## Local dos testes:
+
+Os testes serão realizados na residência do testador (QA) em modelo Home-Office.
+
+## Recursos e Ferramentas necessárias:
+
+- Conexão com Internet;
+- Computador ou aparelho similar;
+- API designada;
+- Softwares de planejamento de teste, tais como: Jira e GitLab;
+- Softwares de execução de teste, tais como: Postman.
+
+## Critérios Usados:
+
+- Crie requisições Get, Post, Put e Delete para validar o retorno das rotas da API;
+
+- Crie cenários de testes abrangendo as User Stories, bem como suas DoR, DoD e Acceptance Criterias;
+
+- Crie cenários de testes alternativos relacionados às histórias de usuário;
+
+- Crie um ou vários mapas mentais relacionados a este plano de tetes;
+
+- Crie testes por meio de requisições através do Postman;
+
+- Catalogue e documente os testes no Jira Software utilizando o auxílio do plugin QAlity.
+
+## Riscos:
+
+Caso o testador não possa realizar suas atividades, seja por quaisquer motivos, é necessário que o avaliador (Rafael Vescio) saiba disso o quanto antes para que seja definido o que fazer em seguida.
+A interpretação dos dados e criação do relatório é uma tarefa do testador (QA). Caso essa tarefa seja atribuída erroneamente a qualquer outra pessoa, é necessário que o avaliador (Rafael Vescio) saiba disso o quanto antes para que seja definido o que fazer em seguida.
+
+## Como os resultados do teste serão divulgados:
+
+Os resultados dos testes, junto a todas as informações requisitadas sobre seu planejamento e execução, devem ser apresentados em cerca de 3 minutos durante o challenge da sprint 3, conforme definido e avisado pelo organizador e Scrum Master Rafael Vescio.
+
+## Cronograma:
+
+O cronograma de planejamento e execução de testes deve seguir o cronograma da sprint 3, com duração de 10 dias.
+
+## Suíte e Casos de teste:
+
+### Testes de Validação das Rotas da API:
+
+***[API]LOGIN***
+
+- Realizar Login;
+- Email e/ou Senha Inválidos.
+
+***[API]Produtos***
+
+- Lista de Produtos;
+- Produto Encontrado;
+- Produto não encontrado;
+- Cadastro de Produto;
+- Cadastro com Sucesso por GET;
+- Já Existe Produto com este Nome;
+- Token Ausente, Inválido ou Expirado (POST,PUT,DELETE);
+- Rota Exclusiva para Administradores (POST,PUT,DELETE);
+- Edição de Produto;
+- Produto Alterado com Sucesso;
+- Produto Cadastrado com Sucesso por PUT;
+- Exclusão de Produto;
+- Produto Excluído com Sucesso;
+- Nenhum Produto Excluído;
+- Produto faz parte de Carrinho.
+
+### Testes de Histórias de Usuários:
+
+***[API]Login***
+
+- Autenticação com Token Bearer;
+- Validade do Token Bearer deve ser de até 10 minutos;
+- Tentativa de autenticação com usuários não cadastrados;
+- Tentativa de autenticação com usuários com senha inválida;
+- Retorno de Status Code 401 - Unauthorized em caso de não autenticação;
+- Autenticação com sucesso de usuários cadastrados corretamente;
+- Evidenciar os testes;
+- Cenários alternativos de testes;
+- Automação de testes.
+
+***[API]Produtos***
+
+- Tentativa de cadastrar produtos com nomes já existentes;
+- Tentativa de excluir produtos que estejam dentro de carrinhos;
+- Cadastro de um novo produto usando PUT na tentativa de editar um produto com ID de produto que não esteja cadastrada ainda;
+- Tentativa de cadastrar um novo produto usando PUT com nome já existente;
+- Evidenciar os testes;
+- Cenários alternativos de testes;
+- Automação de testes.
+
+### Cenários Alternativos de testes:
+
+***[API]Login***
+
+- tentativa de login e autenticação com usuário com administrador = false;
+
+***[API]Produtos***
+
+- Cadastro de produto com sucesso;
+- Tentativa de cadastro de produto sem preço;
+- Tentativa de cadastro de produto sem nome;
+- Tentativa de cadastro de produto  sem quantidade;
+- Tentativa de cadastro de produto com nome, preço e/ou quantidade utilizando caracteres especiais;
+
+**CICLO DE TESTE DE USUÁRIO**
+
+- 1 Login com autenticação,
+- 2 Cadastro de produto,
+- 3 Listagem de produto,
+- 4 Alteração de preço de produto,
+- 5 Exclusão de produto.
+
+## Testes Candidatos à Automação:
+
+- Login com autenticação,
+- Cadastro de produto,
+- Listagem de produto,
+- Alteração de preço de produto,
+- Exclusão de produto.
 
 
+## OBSERVAÇÃO:
 
-### Primeiro planejamento de testes - Feito no dia 1 da sprint 3
-
-User Story: como um vendedor de uma loja com cadastro já realizado, gostaria de poder me autenticar no Marketplace da ServeRest para poder cadastrar, editar, atualizar e excluir meus produtos.
-
-Observações:
-- O cadastro do usuário vendedor já está feito, agora é trataremos sobre cadastro e gerenciamento de produtos.
-- Prestar atenção no termo *autenticação*, o usuário quer se autenticar antes de mais nada.
-- Crud dos produtos: Cadastrar(POST), editar (PUT), atualizar (PATCH?) e excluir (DELETE). [talvez Listagem de produtos?(GET)]
-- Evidenciar SEMPRE os testes
-
-**PRIMEIROS TESTES PLANEJADOS:**
-
-- Auntenticar, um usuário cadastrado, com Token Bearer
-- Logar no Marketplace com um usuário cadastrado
-- Tentar autenticar um usuário não cadastrado e retornar um status code 401 de não autorizado
-- Autenticar todos os usuários cadastrados com a senha correta
-- Tentar autenticar usuário cadastrado mas com senha incorreta para ver se dá erro
-- Verificar se todas as autenticações geram um token bearer
-- Verificar o tempo de validade de um token, não pode ser acima de 10 minutos.
-- Verificar o cadastro de produtos, se dá pra cadastrar produtos sem preço, sem nome, sem quantidade...
-- Verificar se as edições de produtos funcionam e estão ok
-- verificar se as atualizações de produtos funcionam e estão ok
-- verificar se a exclusão de produto funciona e está ok
-- verificar se dá para cadastrar mais de um produto com o mesmo nome, identificação, valor, etc... e, em caso positivo, verificar se a atualização, alteração ou exclusão de um dos produtos não afeta o outro.
-- Realizar testes de ciclo de usuário com início, meio e fim.
+***TODOS OS TESTES PODEM SER ACOMPANHADOS E VISTOS NO PROJETO DO JIRA QACOMPASS USANDO O SEGUINTE LINK:*** https://renatorossi93.atlassian.net/jira/software/projects/QAC/boards/5/timeline
