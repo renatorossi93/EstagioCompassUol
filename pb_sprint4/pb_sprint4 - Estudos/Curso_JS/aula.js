@@ -229,23 +229,40 @@ switch (permissao){
 
 //For:
 for(let i = 1; i <= 5; i++){
-    if(i % 2 !==0){
-    console.log(i);
+    if(i % 2 !== 0){
+        console.log(i);
     }
 }
 
 //While:
 let i = 5;
+
 while(i >= 1){
     if(i % 2 !==0){
         console.log(i);
-        }
+    }
+    i--;
 }
 
 //Do While:
-
 let z = 0;
 do {
     console.log('digitando...');
     z++;
 } while (z < 10)
+
+//For in:
+const alguem = {
+    nome:'Renato',
+    idade:30
+};
+for(let chave in alguem){ //key-value
+    console.log(chave, alguem['nome']);
+}
+
+const cores = ['vermelho', 'azul', 'verde'];
+
+for (let indice in cores) {
+    console.log(indice)
+}
+
