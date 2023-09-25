@@ -6,7 +6,7 @@
 
 **Pirâmide de testes**
 
-[Piramide de testes](assets/piramidedetestes.jpg)
+[Piramide de testes](assets/piramidedetestes.jpeg)
 
 Na piramide de testes os testes manuais ficam em cima como uma nuvem pois é abstrato você saber o que você precisa para executar estes testes.
 
