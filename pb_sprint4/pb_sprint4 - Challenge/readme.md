@@ -135,20 +135,78 @@ Então: o teste deverá me dar uma negativa, me impedindo de finalizar o cadastr
 Status: 
 
 **CT04:** 
-Dado: 
-Quando:
-Então:
+Dado: que eu esteja logado e autenticado e tenha cadastrado um carrinho com produtos dentro
+Quando: eu estiver consuntando a lista de produtos
+Então: a lista deve me mostrar que os produtos adicionados ao carrinho devem estar com a quantidade reduzida baseada na quantidade de produtos que foi adicionada ao carrinho
 Status:
 
 **CT05:** 
-Dado:
-Quando:
-Então:
+Dado: que eu esteja logado e autenticado 
+Quando:  eu estiver buscando um carrinho montado em específico por ID
+Então: o teste deve me retornar o carrinho o qual eu especifiquei pela ID
+Status:
+
+**CT06:**
+Dado: que eu, enquanto logado e autenticado, tenha montado um carrinho
+Quando: quando eu completar a compra dos produtos do carrinho
+Então: o carrinho deverá ser excluído do banco de dados da API
+Status:
+
+**CT07:**
+Dado: que eu esteja logado e autenticado
+Quando: eu concluir a compra dos produtos do carrinho e ele estiver sido  excluído
+Então: o carrinho excluído deverá estar vinculado ao usuário do token utilizado.
+Status:
+
+**CT08:**
+Dado: que eu, logado e autenticado,  tenha montado um carrinho
+Quando: eu cancelar a compra do carrinho
+Então: o carrinho deverá ser excluído  
+Status:
+
+**CT09:**
+Dado: que eu, logado e autenticado e com carrinho já montado
+Quando: cancelar a compra do carrinho e ele for excluído
+Então: os produtos que estavam listados no carrinho deverão ter sua quantidade retornada ao valor que era antes dos produtos serem adicionados ao carrinho.
+Status:
+
+**CT10:**
+Dado: que eu, logado e autenticado, e com o carrinho já montado e com sua compra cancelada
+Quando: tiver excluído o carrinho por ter cancelado a compra
+Então: o carrinho excluído deverá também estar vinculado ao usuário do token utilizado
 Status:
 
 ### Cenários Alternativos de testes:
 
+**CA01:**
+Dado:
+Quando: 
+Então:
+Status:
 
+**CA02:**
+Dado:
+Quando: 
+Então:
+Status:
+
+**CA03:**
+Dado:
+Quando: 
+Então:
+Status:
+
+**CA04:**
+Dado:
+Quando: 
+Então:
+Status:
+
+**CA05:**
+Dado:
+Quando: 
+Então:
+Status:
 
 ### Automação de Testes:
 
