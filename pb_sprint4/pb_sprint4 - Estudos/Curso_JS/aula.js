@@ -266,3 +266,158 @@ for (let indice in cores) {
     console.log(indice)
 }
 
+//For-of
+
+for(let cor of cores) {
+    console.log(cor);
+}
+
+// Aprendendo Factory Functions (Funções de Fábrica)
+
+//camelCase - umDoisTresQuatro
+function criarCelular(marcaCelular, tamanhoTela, capacidadeBateria){
+    return {
+        marcaCelular,
+        tamanhoTela,
+        capacidadeBateria,
+        ligar(){
+            console.log('Fazendo ligação...')
+        }
+    }
+}
+
+const celular1 = criarCelular('Zenfone', 5.5, 5000);
+console.log(celular1);
+
+const celular2 = criarCelular('Redmi Note 11s', 6.5, 3500);
+console.log(celular2);
+
+// Aprendendo Constructor Functions0
+
+// PascalCase - UmDoisTresQuatro
+function Celular(marcaCelular, tamanhoTela, capacidadeBateria){
+    this.marcaCelular = marcaCelular,
+    this.tamanhoTela = tamanhoTela,
+    this.capacidadeBateria = capacidadeBateria,
+    this.ligar = function(){
+        console.log('Fazendo ligação...')
+    }
+}
+
+const celular = new Celular('Asus', 5.5, 5000);
+console.log(celular);
+
+// Aprendendo a natureza Dinâmica de Objetos
+
+const mouse = {
+    cor: 'azul',
+    marca: 'Dazz'
+}
+mouse.velocidade = 5000;
+mouse.trocarDPI = function(){
+    console.log('mudando DPI');
+}
+delete mouse.velocidade;
+delete mouse.trocarDPI;
+console.log(mouse);
+
+// Aprendendo a clonar objetos
+
+const novoObjeto = Object.assign({
+    bateria: 4000
+},celular2);
+console.log(novoObjeto);
+
+const objeto2 = {...celular1};
+console.log(objeto2);
+
+// Aprendendo sobre Strings
+
+//Tipo primitivo
+const mensagem= 'minha  primeira mensagem do tipo primitivo'
+
+//Tipo Objeto
+const outraMensagem = new String('mensagem do tipo objeto');
+
+// Aprendendo sobre Arrays:
+
+//adicionar novos elementos
+
+const numeros = [1, 2, 3];
+
+//inserir no inicio do array
+numeros.unshift(0);
+console.log(numeros);
+//inserir no meio do array
+numeros.splice(1, 0, 'a');
+console.log(numeros);
+//inserir no final do array
+numeros.push(4);
+console.log(numeros);
+
+//encontrar novos elementos
+//encontrar elementos do tipo primitivo:
+const numeros1 = [1, 2, 3, 4];
+console.log(numeros1.indexOf(2));
+console.log(numeros1.includes(3));
+console.log(numeros1.lastIndexOf(1));
+//encontrar elementos do tipo referencia:
+const marcas = [
+    {id: 1,nome: 'a'},
+    {id: 2,nome: 'b'},
+    {id: 3,nome: 'c'},
+    {id: 4,nome: 'd'},
+    {id: 5,nome: 'e'},
+];
+const marca1 = marcas.find(function(marca1){
+    return marca1.nome  ==='c';
+});
+console.log(marca1);
+
+//remover elementos
+const numeros2 = [1, 2, 3, 4, 5, 6];
+//remover no final
+const ultimo = numeros2.pop();
+console.log(ultimo);
+console.log(numeros2);
+//remover no inicio
+const inicio = numeros2.shift();
+console.log(inicio);
+console.log(numeros2);
+//remover no meio
+const meio = numeros2.splice(2,1);
+console.log(meio);
+console.log(numeros2);
+
+//esvaziar arrays
+let numeros3 = [1, 2, 3, 4, 5, 6];
+let outros = numeros3;
+//solucao 1
+//numeros3 = [];
+//console.log(outros);
+
+//solucao 2
+numeros3.length = 0;
+//console.log(numeros3);
+//console.log(outros);
+
+//solucao 3
+//numeros3.splice(0,numeros3.length);
+//console.log(numeros3);
+//console.log(outros);
+
+//solucao 4
+//while (numeros3.length > 0)
+//  numeros.pop();  
+
+//combinar e dividir arrays
+const primeiro = [1, 2, 3];
+const segundo = [4, 5, 6];
+
+//combinar os arrays (concatenar)
+const concatenado = primeiro.concat(segundo);
+console.log(concatenado);
+
+//dividir os arrays (slice(cortar))
+const cortado = concatenado.slice(1, 3);
+console.log(cortado);

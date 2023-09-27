@@ -1,3 +1,6 @@
+# RESUMO
+***AQUI ESTÁ UM RESUMO DOS ESTUDOS SOBRE O CURSO DE TESTES EXPLORATÓRIOS DA UDEMY, MINISTRADA PELO PROFESSOR WAGNER COSTA, ORGANIZADO E RESUMIDO POR TÓPICOS OU ASSUNTOS***
+
 ## Automação vs Manual
 
 - Testes manuais são lentos.
@@ -119,3 +122,36 @@ Cada aplicação necessita de algo específico.
 - Evite distrações
 
 ## Freestyle Testing
+
+Neste tipo de teste não seguimos regras e padrões.
+
+Ele serve para explorar a aplicação com navegação livre para descobrir as suas principais funcionalidades e o fluxo básico do sistema.
+
+É o tipo de teste que se usa quando se está sendo apresentado pela primeira vez a uma aplicação. Fora isso, não se recomenda usar muito esta técnica.
+
+## Estratégia baseada em cenários
+
+Esta estratégia de testes se basea em fluxos de uso de um usuário e então estipulamos testes baseados nesses fluxos e os chamamos de cenários de testes.
+
+É uma técnica simples mas poderosa.
+
+## Estratégia baseada em Feedback
+
+Essa estratégia serve para te ajudar a descobrir pontos da aplicação em que você poderá trabalhar.
+
+- Densidade de Erros Reportados;
+- Priorização do especialista;
+- Criticidade de cenários;
+- Cobertura.
+
+## Estratégia baseada em Técnicas
+
+Há cenários de testes que podemos criar baseados em algumas técnicas. Veremos essas técnicas a seguir.
+
+*"Testar é selecionar um conjunto infinito de cenários que representem um conjunto infinito de possibilidades"* -Autor Desconhecido
+
+## Técnica de Classe de equivalência
+
+Essa técnica é uma das mais famosas, a ideia dela é reduzir um numero infinito de possibilidades a um conjunto finito e selecionado para que este conjunto represente essas infinitas possibilidades.
+
+## Técnica de Valor Limite
