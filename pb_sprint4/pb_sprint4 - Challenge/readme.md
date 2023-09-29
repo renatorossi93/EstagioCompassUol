@@ -114,104 +114,143 @@ O cronograma de planejamento e execução de testes deve seguir o cronograma da 
 - O estoque de produtos de um carrinho excluído ao cancelar a compra deverá ser reabastecido;
 - O carrinho excluído ao cancelar a compra também deverá estar vinculado ao usuário do *token* utilizado.
 
-### Cenários de teste:
+### CT - Cenários de teste:
 
-**CT01:** 
+***LC - LISTA DE CARRINHOS***
+**LC-CT01: LISTAR CARRINHOS** 
+Dado: que eu esteja logado
+Quando: eu estiver requisitando uma lista de todos os carrinhos cadastrados
+Então: a API deve me retornar um status [200] com uma listas de todos os carrinhos cadastrados no momento com as informações: quantidade(de carrinhos no total), carrinhos, produtos, idProduto, quantidade(daquele produto), precoUnitario, precoTotal, quantidadeTotal, idUsuario e id(de cada carrinho).
+
+***CC - CADASTRO DE CARRINHOS***
+**CC-CT01: CADASTRAR CARRINHO COM SUCESSO** 
 Dado: que eu esteja logado e autenticado corretamente
-Quando: eu estiver consultando os carrinhos já montados no postman
-Então: a requisição deve me retornar uma lista de carrinhos com as informações dos produtos de cada carrinho (idProduto, quantidade, precoUnitário, precoTotal, quantidadeTotal) e com a ID de cada usuário usuário que montou um carrinho (idUsuario) além do ID de cada carrinho (id).
-Status: Passou?/Falhou?/Bloqueado?
+Quando:eu  estiver cadastrando um carrinho pela primeira vez
+Então: a API deve me retornar um status [201] e uma mensagem de cadastro bem sucedido junto com uma id do carrinho criado.
 
-**CT02:** 
+**CC-CT02: CADASTRAR UM SEGUNDO CARRINHO** 
 Dado: que eu esteja logado e autenticado corretamente
-Quando: eu estiver montando um carrinho para mim
-Então: o carrinho que eu estou montando deve estar vinculado  eu ID do usuário que estiver logado.
-Status:
+Quando: eu estiver cadastrando um carrinho pela segunda vez com o primeiro ainda aberto
+Então: a API deve me retornar uma negativa de status [400] com uma mensagem de que não é permitido ter mais de 1 carrinho 
 
-**CT03:** 
+**CC-CT03: CADASTRAR UM CARRINHO COM PRODUTO INEXISTENTE** 
 Dado: que eu esteja logado e autenticado corretamente
-Quando: eu estiver tentando montar um segundo carrinho
-Então: o teste deverá me dar uma negativa, me impedindo de finalizar o cadastro de um novo carrinho e me informando que deve haver apenas 1 carrinho por usuário.
-Status: 
+Quando: eu estiver cadastrando um carrinho com um produto inexistente
+Então: a API deve me retornar uma negativa de status [400] com uma mensagem de produto não encontrado.
 
-**CT04:** 
-Dado: que eu esteja logado e autenticado e tenha cadastrado um carrinho com produtos dentro
-Quando: eu estiver consuntando a lista de produtos
-Então: a lista deve me mostrar que os produtos adicionados ao carrinho devem estar com a quantidade reduzida baseada na quantidade de produtos que foi adicionada ao carrinho
-Status:
+**CC-CT04: CADASTRAR UM CARRINHO COM PRODUTO COM QUANTIDADE MAIOR DO QUE O DISPONÍVEL** 
+Dado: que eu esteja logado e autenticado corretamente
+Quando: eu estiver cadastrando um carrinho com um produto incluso em que a quantidade adicionada ao carrinho seja maior do que a quantidade disponível do produto
+Então: a API deve me retornar uma negativa de status [400] com uma mensagem de produto não possui quantidade suficiente.
 
-**CT05:** 
-Dado: que eu esteja logado e autenticado 
-Quando:  eu estiver buscando um carrinho montado em específico por ID
-Então: o teste deve me retornar o carrinho o qual eu especifiquei pela ID
-Status:
+**CC-CT05: CADASTRAR UM CARRINHO COM PRODUTO DUPLICADO** 
+Dado: que eu esteja logado e autenticado corretamente
+Quando: eu estiver cadastrando um carrinho com produto duplicado, ou seja, duas vezes o mesmo produto adicionado
+Então: a API deve me retornar uma negativa de status [400] com uma mensagem de que não é possível ter um produto duplicado.
 
-**CT06:**
+**CC-CT06: CADASTRAR UM CARRINHO APÓS TER PASSADO MAIS DE 10 MINUTOS AUTENTICADO** 
+Dado: que eu esteja logado e autenticado corretamente
+Quando: eu estiver cadastrando um carrinho após ter logado e autenticado há mais de 10 minutos
+Então: a API deve me retornar uma negativa de status [401] com uma mensagem de token ausente, inválido ou expirado.
+
+**CC-CT07: PRODUTOS ADICIONADOS AO CARRINHO DIMINUÍRAM QUANTIDADE** 
+Dado: que eu esteja logado
+Quando: eu tiver cadastrado um carrinho com produtos dentro
+Então: os produtos do carrinho deverão ter sua quantidade diminuída na lista de produtos de acordo com a quantidade adicionada ao carrinho previamente cadastrado.
+
+***BC - BUSCA DE CARRINHO POR ID***
+**BC-CT01: LISTAR CARRINHO POR ID COM SUCESSO** 
+Dado: que eu esteja logado e com um carrinho cadastrado
+Quando: eu estiver buscando especificamente por este carrinho cadastrado através da ID dele
+Então: a API deve me retornar um status [200] com informações do carrinho em questão, sendo elas: produtos, idProduto, quantidade(do produto), precoUnitario, precoTotal, quantidadeTotal, idUsuario e id(do carrinho).
+
+**BC-CT02: LISTAR CARRINHO POR ID COM CARRINHO NÃO ENCONTRADO** 
+Dado: que eu esteja logado e com um carrinho cadastrado
+Quando: eu estiver buscando especificamente por este carrinho cadastrado através da ID inexistente
+Então: a API deve me retornar um status [400] com uma mensagem de que o carrinho não foi encontrado.
+
+**BC-CT03: LISTAR CARRINHO POR ID COM UMA ID DE UM CARRINHO JÁ EXCLUÍDO** 
+Dado: que eu esteja logado e com um carrinho cadastrado
+Quando: eu estiver buscando por carrinho cadastrado através da ID dele só que após este carrinho já tiver sido excluído
+Então: a API deve me retornar um status [400] com uma mensagem de carrinho não encontrado.
+
+***EC - EXCLUSÃO DE CARRINHO***
+**EC-CT01: EXCLUIR CARRINHO AO CONCLUIR COMPRA COM SUCESSO**
 Dado: que eu, enquanto logado e autenticado, tenha montado um carrinho
-Quando: quando eu completar a compra dos produtos do carrinho
-Então: o carrinho deverá ser excluído do banco de dados da API
-Status:
+Quando: eu tiver concluído a compra dos produtos do carrinho
+Então: a API deve excluir o carrinho e me retornar um status [200] com a mensagem de registro excluído com sucesso.
 
-**CT07:**
-Dado: que eu esteja logado e autenticado
-Quando: eu concluir a compra dos produtos do carrinho e ele estiver sido  excluído
-Então: o carrinho excluído deverá estar vinculado ao usuário do token utilizado.
-Status:
+**EC-CT02: EXCLUIR CARRINHO AO CONCLUIR COMPRA APÓS ESPERAR MAIS DE 10 MINUTOS**
+Dado: que eu, enquanto logado e autenticado, tenha montado um carrinho
+Quando: eu estiver tentando concluir a compra e excluir o carrinho,após 10 minutos de ter montado o carrinho
+Então: a API deve me retornar um status [401] com uma mensagem de token de acesso ausente, inválido ou expirado.
 
-**CT08:**
+**EC-CT03: EXCLUIR CARRINHO AO CANCELAR COMPRA COM SUCESSO**
 Dado: que eu, logado e autenticado,  tenha montado um carrinho
-Quando: eu cancelar a compra do carrinho
-Então: o carrinho deverá ser excluído  
-Status:
+Quando: eu tiver cancelado a compra dos produtos do carrinho
+Então: a API deve excluir o carrinho e me retornar um status [200] com a mensagem de registro excluído com sucesso.
 
-**CT09:**
-Dado: que eu, logado e autenticado e com carrinho já montado
-Quando: cancelar a compra do carrinho e ele for excluído
-Então: os produtos que estavam listados no carrinho deverão ter sua quantidade retornada ao valor que era antes dos produtos serem adicionados ao carrinho.
-Status:
+**EC-CT04: EXCLUIR CARRINHO AO CANCELAR COMPRA APÓS MAIS DE 10 MINUTOS**
+Dado: que eu, logado e autenticado,  tenha montado um carrinho
+Quando: eu tiver cancelado a compra dos produtos do carrinho após ter se passado mais de 10 minutos do cadastro do carrinho
+Então: a API deve retornar um status code [401] com a mensagem de token de acesso ausente, inválido ou expirado.
 
-**CT10:**
-Dado: que eu, logado e autenticado, e com o carrinho já montado e com sua compra cancelada
-Quando: tiver excluído o carrinho por ter cancelado a compra
-Então: o carrinho excluído deverá também estar vinculado ao usuário do token utilizado
-Status:
+**EC-CT05: PRODUTOS RETORNADOS AO EXCLUIR CARRINHO CANCELANDO A COMPRA**
+Dado: que eu, logado e com carrinho já montado
+Quando: eu tiver cancelado a compra dos produtos do carrinho e o mesmo estiver excluído
+Então: a API deve retornar as quantidades, antes cadastradas no carrinho, de volta aos seus produtos listados na rota de produtos da API.
 
-### Cenários Alternativos de testes:
+**EC-CT06: PRODUTOS COM QUANTIDADE MENOR AO EXCLUIR CARRINHO CONCLUINDO A COMPRA**
+Dado: que eu, logado e com carrinho já montado
+Quando: eu tiver concluído a compra do carrinho e o mesmo estiver excluído
+Então: a API não deve retornar as quantidades, antes cadastradas no carrinho, de volta aos seus produtos listados na rota de produtos da API.
 
-**CA01:**
-Dado:
-Quando: 
-Então:
-Status:
+### Automação dos Testes:
 
-**CA02:**
-Dado:
-Quando: 
-Então:
-Status:
+Foram formados scripts de automação para todos os Cenários de testes, sendo eles:
 
-**CA03:**
-Dado:
-Quando: 
-Então:
-Status:
+*para tempo de resposta menor que 250ms:*
 
-**CA04:**
-Dado:
-Quando: 
-Então:
-Status:
+pm.test("Tempo de resposta menor que 250ms", function () {
+    pm.expect(pm.response.responseTime).to.be.below(250);
+});
 
-**CA05:**
-Dado:
-Quando: 
-Então:
-Status:
+*para validar se o corpo da resposta é um JSON:*
 
-### Automação de Testes:
+pm.test("Corpo da resposta é um JSON", function () {
+    pm.expect(pm.response).to.be.json;
+});
 
+*para validar se a requisição em questão foi bem ou mal sucedida:*
 
+//Exemplo em questão é um get bem sucedido, mas o script foi alterado para também validar POST e Delete, tanto bem quanto mal sucedidos.
 
-### Observação:
+pm.test("GET bem sucedido", function () {
+    pm.expect(pm.response.code).to.be.equal(200);
+});
 
+*parar validar se o corpo da resposta contém a string, ou seja, a mensagem esperada:*
 
+//Exemplo em questão é para validar se a mensagem esperada é de um cadastro realizado com sucesso.
+
+pm.test("Corpo contém string", function () {
+    pm.expect(pm.response.text()).to.include("Cadastro realizado com sucesso");
+});
+
+### Observações:
+
+Para esta Challenge obtive ajudas, sendo elas:
+ 
+- Com problema de gitignore de **Marcelo** e **Raphael**;
+
+- Com ideias de testes para calculadora.js de **Marcelo**;
+
+- Com ideias para cenários de testes da challenge de **Marcelo** e **Alisson**;
+
+- Com automação de token de autorização de **Raphael**;
+
+-  Com ajuda de comando para calcular raiz quadrada usando JS com [pesquisa do Google](https://www.google.com/search?q=como+calcular+de+forma+simples+a+raiz+quadrada+com+JS%3F&sca_esv=569245889&sxsrf=AM9HkKkaf6fD7IBJGiNE0_-oo6wT_G5Oeg%3A1695930045150&ei=vdYVZdbYCKPm1sQPgMmQiAE&ved=0ahUKEwiWq57fh86BAxUjs5UCHYAkBBEQ4dUDCBA&uact=5&oq=como+calcular+de+forma+simples+a+raiz+quadrada+com+JS%3F&gs_lp=Egxnd3Mtd2l6LXNlcnAiNmNvbW8gY2FsY3VsYXIgZGUgZm9ybWEgc2ltcGxlcyBhIHJhaXogcXVhZHJhZGEgY29tIEpTPzIFECEYoAEyCBAhGBYYHhgdSIFHUIsIWLlFcAR4AZABAZgB3gGgAc8sqgEGMC4zOC4xuAEDyAEA-AEBwgIHECMYsAMYJ8ICChAAGEcY1gQYsAPCAgQQIxgnwgIHECMYigUYJ8ICDRAAGIoFGLEDGIMBGEPCAgcQABiKBRhDwgILEC4YgAQYsQMYgwHCAhEQLhiABBixAxiDARjHARjRA8ICCxAAGIAEGLEDGIMBwgIHEC4YigUYJ8ICBxAuGIoFGEPCAgoQLhiKBRixAxhDwgIFEAAYgATCAggQABiKBRiSA8ICDhAAGIAEGLEDGIMBGMkDwgILEAAYigUYsQMYgwHCAggQABiABBixA8ICBhAAGBYYHuIDBBgAIEGIBgGQBgk&sclient=gws-wiz-serp);
+
+- Com ajuda sobre ideias de cenários de testes com [Na prática - Como criar cenários de testes? Dia a dia de um Analista de testes/QA](https://www.youtube.com/watch?v=d3L78k3drkY).
+
+- E com ajuda sobre automação de testes no postman com a *seção 5 - Escrevendo testes no Postman* do curso da Udemy chamado [Automação de testes de API com Postman + Projeto de testes](https://compassuol.udemy.com/course/automacao-de-testes-de-api-com-postman-projeto-de-testes/learn/lecture/21146240#overview).
