@@ -172,3 +172,5 @@
              - 4 Zelar pela reputação da aplicação;
              - 5 Não causar danos aos clientes/usuários;
              - 6 Garantir responsbilidade legal.
+
+##  Lições Aprendidas e Processo de Teste de Performance:
