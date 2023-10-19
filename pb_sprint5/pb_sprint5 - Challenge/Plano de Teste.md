@@ -256,7 +256,7 @@ Então: a API deve ser capaz de processar pelo menos 100 cadastros simultâneos 
 ***CTP-04***
 Dado: que eu tenha as rotas de testes configuradas no JMeter
 Quando: eu estiver testando a carga de registros de itens em carrinho
-Então: a API deve ser capaz de registrar ao menos 100 solicitações por segundo
+Então: a API deve ser capaz de registrar ao menos 100 solicitações de carrinhos por segundo
 
 ***CTP-05***
 Dado: que eu tenha as rotas de testes configuradas no JMeter

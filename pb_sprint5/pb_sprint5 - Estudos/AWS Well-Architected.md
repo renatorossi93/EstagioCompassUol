@@ -192,6 +192,29 @@
 
          - Otimizar ao longo do tempo aproveitando os novos serviços ou recursos.
 
+     **Princípios de desenvolvimento do pilar da otimização de custos**
+
+     Desafios nos princípios de otimização de custos no ambiente tradicional:
+
+         - Centralizar o custo.
+
+         - Empregar pessoas para manter servidores.
+
+         - Pagar adiantado com uma forma intensiva de CAPEX.
+
+         - Nenhum benefício de economias de escala.
+
+         - Despesas em operações de datacenter
+
+     Princípios de otimização de custos no ambiente de NUVEM>
+
+     Na nuvem, a otimização de custos não tem as restrições de ambientes tradicionais. Trabalhe ativamente entre equipes para melhorar a capacidade da sua organização de otimizar as cargas de trabalho.
+
+     Você paga somente pelos recursos computacionais que consumir e aumente ou diminua o uso de acordo com os requisitos de negócios, ao invés de usar previsões elaboradas. Ao usar a computação em nuvem, você pode obter um custo variável menor do que o que poderia por conta própria, porque a AWS pode alcançar economias de escala mais altas. A AWS realizao trabalho pesado de racks, empilhamento e capacitação de servidores para que você possa se concentrar em seus clientes e projetos de negócios em vez de se concentrar na infraestrutura de TI. A nuvem facilita a identificaçãoi precisa do uso e dos custos dos sistemas, que, por sua vez, permite a transparência dos custos de TI para proprietários de negócios individuais.
+
+     Na nuvem, os serviços gerenciados eliminam a carga operacional da manutenção de servidores para tarefas como envio de e-mails ou gerenciamento de bancos de dados.
+     
+      
 ## Perguntas sobre o Well-Architected
 
  Cada pilar tem um conjunto de perguntas, com a ajuda, para fornecer contexto. Também inclui respostas de melhores práticas com as quais vimos clientes serem bem-sucedidos.
