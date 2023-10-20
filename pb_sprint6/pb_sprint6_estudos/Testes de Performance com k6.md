@@ -139,7 +139,7 @@
 
  A carga em um teste de estresse se assemelha à carga em um teste de carga média. A diferença é que ele atinge um nível maior de carga.
 
-     1 - Aumetne ainda mais a atividade do script em um ramp-up mais lento até que ele atinja um número acima da média de usuários ou taxa de transferência.
+     1 - Aumente ainda mais a atividade do script em um ramp-up mais lento até que ele atinja um número acima da média de usuários ou taxa de transferência.
 
      2 - Mantenha essa carga por um tempo.
 
@@ -161,7 +161,7 @@ O Soak Test é outra variação do teste de carga. Focaliza períodos prolongado
 
      - Disponibilidade e estabilidade do sistema durante períodos prolongados.
 
- O teste de imersão difere de um teste de carga médi na duração od teste. Em um teste de imersão, a duração da carga de pico (geralmente uma quantidade média) se estende por várias horas e até dias. Embora a duração seja consiederavelmente maior, os períodos de ramp-up e ramp-down de um teste de imersão são os mesmos de um teste de carga média. 
+ O teste de imersão difere de um teste de carga médi na duração do teste. Em um teste de imersão, a duração da carga de pico (geralmente uma quantidade média) se estende por várias horas e até dias. Embora a duração seja consiederavelmente maior, os períodos de ramp-up e ramp-down de um teste de imersão são os mesmos de um teste de carga média. 
 
  Em algumas conversas de testes um teste de imersão (soak test) pode ser chamado de teste de resistência (endurance/stamina test) ou teste de carga alta constant (constant high-load test).
 
@@ -209,8 +209,152 @@ O Soak Test é outra variação do teste de carga. Focaliza períodos prolongado
 
  Depois de executar todos os tipos de teste anteriores, você sabe que seu sistema funciona bem em muitas cargas diferentes: pequena, média, alta e estendida.
 
- ### Spike Test
+ ### Spike Test (Teste de Pico)
 
+ Um spike test verifica se o sistema sobrevive e funciona sob súbita e massiva corrida de utilização. 
 
+ Os spike tests, em português, testes de pico, são úteis quando o sistema pode experimentar eventos de tráfego repentino e massivo. Exemplos de tais eventos incluem vendas de ingressos (ex: Shows), lançamentos de produtos (ex: Videogames), anúncios de transmissão (ex: Eventos de esportes), prazos de processo (ex: Declaração de impostos) e vendas sazonais  (ex: Black Friday). Além disso, os picos de tráfego podem ser causados por eventos mais frequentes, como horários de pico, uma tarefa específica ou um caso de uso.
 
- ### Breakpoint Test
+ O Teste de pico aumenta para cargas extremamente altas em um tempo de ramp-up muito curto ou inexistente. Normalmente, ele não tem período de platô ou é muito breve, já que usuários reais geralmente não ficam por aí dazendo etapas extras nessas situações. Da mesma forma, a rampa é muito rápida ou inexistente, deixando o processo iterar apenas uma vez.
+
+ Esse teste pode incluir processos diferentes dos tipos de testes anteriores, já que os picos geralmente não fazem parte de um dia médio em produção. Também pode exigir adicionar, remover ou modificar processos no script que não estavam nos testes de carga média.
+
+ Ocasionalmente, as equipes devem reformular o sistema para permitir ou priorizar recursos para os processos de alta demanda durante o evento.
+
+ **Quando realizar um teste de pico**
+
+ Este teste deve ser executado quando o sistema espera receber uma súbita onda de atividade.
+
+ Quando o sistema espera esse tiipo de comportamento, o spike test ajuda a identificar como o sistema se comportará e se sobreviveerá à súbita corrida de carga. A carga está consideravelmente acima da média e pode se concentrar em um conjunto diferente de processos do que os outros tipos de teste.
+
+ **Considerações**
+
+ Ao se preparar para um teste de pico, considere o seguinte:
+
+     - Concentre-se nos principais processos neste tipo de teste:
+
+     Avalie se o pico de tráfego aciona processos iguais ou diferentes dos outros tipos de teste. Crie a lógica de teste de acordo.
+
+     - O teste muitas vezes não termina:
+
+     Eerros são comuns nesses cenários.
+
+     - Correr, sintonizar, repetir:
+
+     Quando seu sistema está em risco de eventos de pico, a equipe deve executar um spike test e ajustar o sistema várias vezes.
+
+     - Monitorar:
+
+     O monitoramento de back-end é essencial para os resultados bem-sucedidos desse teste.
+
+ **Spike test em k6**
+
+ Os principais diferenciais do spike test  são a simulação de cargas súbitas e muito altas. Não tem uma duração de platô (carga total) ou geralmente é breve.
+
+ Às vezes, o teste pode exigir um platô de carga por um tempo. Se o platô é necessário, geralmente é curto. Uma rampa também pode ser rápida ou desnecessária, pois o objetivo é aumentar repentinamente a carga do sistema.
+
+ Em um teste de pico, a carga aumenta rapidamente para um nível extremo. O período de ramp-down segue quando o teste atinge o máximo, retornando a 0 rapidamente.
+
+ Um teste de pico recebe seu nome da forma de sua carga quando representado graficamente.
+
+ **Análise dos resultados**
+
+ Algumas métricas de desempenho a serem avaliadas em testes de pico incluem velocidades de pod, tempos de recuperação após a corrida de carga, tempo para voltar ao normal ou o comportamento em processos cruciais do sistema durante a sobrecarga.
+
+ Descobrir como o sistema responde (se sobreviver) à pressa repentina ajuda a otimizá-lo para garantir que ele possa funcionar durante um evento real. Em alguns eventos, a carga é tão alta que todo o sistema pode ter que ser otimizado para lidar com os processos-chave. Nesses casos, repita o teste até que a confiança do sistema seja alta.
+
+ ### Breakpoint Test (Testes de Ponto de Interrupção)
+
+ O breakpoint test visa encontrar limites do sistema. As razões pelas quais você pode querer saber os limites incluem: 
+
+      - Ajustar ou cuidar dos pontos fracos do sistema para realocar esses limites mais altos em níveis mais altos.
+
+      - Para ajudar a planejar as etapas de correção nesses casos e se preparar para quando o sistema se aproximar desses limites.
+
+ Em outras palavras, saber onde e como um sistema começa a falhar ajuda a se preparar para tais limites.
+
+ Um ponto de interrupção aumenta para números irrealisticamente altos. Esse teste geralmente precisa ser interrompido manualmente ou automaticamente quando os limites começam a falhar. Quando esses problemas aparecem, o sistema atingiu seus limites.
+
+ O teste de ponto de interrupção é outro tipo de teste sem consenso claro de nomeação. Em algumas conversas de teste, também é conhecido como teste de capacidade(capacity test), carga pontual(point load testing) e limite(limit testing).
+
+ **Quando executar um teste de ponto de interrupção**
+
+ As equipes executam umteste de ponto de interrupção sempre que precism conhecer os diversos limites de seu sistema. Algumas condições que podem justificar um teste de ponto de interrupção incluem o seguinte:
+
+     - A necessidade de saber se a carga do sistema espera crescer continuamente.
+
+     - Se o consumo atual de recursos for considerado alto.
+
+     - Após alterações significativas na base de código ou na infraestrutura.
+
+ A frequência com que executar esse tipo de teste depende do risco de atingir os limites do sistema e do número de alterações nos componentes de infraestrutura de provisionamento.
+
+ Depois que breakpoint for executado e os limites do sistema tiverem sido identificados, você poderá repetir o teste após o exercício de ajuste para validar como ele afetou os limites. Repita o ciclo de ajuste até que a equipe esteja satisfeita.
+
+ **Considerações**
+
+ - Evite testes de ponto de interrupção em ambientes de nuvem elástica:
+
+ O ambiente elástico pode crescer à medida que o teste avança, encontrando apenas o limite da fatura da sua conta na nuvem. *Se esse teste for executado em um ambiente de nuvem, é altamente recomendável desativar a elasticidade em todos os componentes afetados.*
+
+ - Aumente a carga gradualmente:
+
+ Um aumento repentino pode tornar difícil identificar por que e quando o sistema começa a falhar.
+
+ - A falga do sistema pode significar coisas diferetnes para equipes diferentes:
+
+ Talvez você queira identificar cada um dos seguintes pontos de falha:
+
+     - Desempenho degradado. Os tempos de respoosta aumentaram e a experiência do usuário diminuiu.
+
+     - Desempenho problemático. Os tempos de resposta chegam a um ponto em que a experiência do usuário se degrada severamente.
+
+     - Timeouts. Os  processo estão falhando devido a tempos de resposta extremamente altos.
+
+     - Erros. O sistema começa a responder com códigos de erro HTTP.
+
+     - Falha do sistema. O sistema entrou em colapso.
+
+ - Você pode repetir esse teste várias vezes
+
+ Repetir após cada ajuste pode permitir que você empurre o sistema ainda mais.
+
+ - Execute breakpoints tests somente quando o sistema for conhecido por executar em todos os outros tipos de teste.
+
+ O breakpoint test pode ir longe se o sistema tiver um desempenho ruim com os tipos de teste anteriores.
+
+ **Teste de breakpoint em k6**
+
+ O teste de breakpoint é simples. A carga lentamente aumenta até um nível consideravelmente alto. Não tem platô, rampa ou outros degraus. E geralmente falha antes de chegar ao ponto indicado.
+
+ k6 oferece duas maneiras de aumentar a atividade: aumentando VUs ou aumentando a taxa de transferência (modelos abertos e fachados). Diferente de outros tipos de teste de carga, que devem ser interrompidos quando o sistema se degrada até um determinado ponto, a carga do breakpoint aumenta mesmo quando o sistema começa a se degradar. Isso o torna recomendável usar ramping-arrival-rate para um teste de breakpoint.
+
+ O teste continua aumentando a carga ou VUs até atingir o ponto de interrupção definido ou os limites do sistema, momento em que o teste pára ou é abortado.
+
+O teste deve ser interrompido antes de concluir a execução agendada. Você pode parar o teste manualmente ou com um limite:
+
+     - Para interromper o k6 manualmente na CLI, precione ctrl+C em Linux ou Windows, e comando. em Mac.
+
+     - Para interromper o teste usando um limite, você deve definir abortOnFail como verdade. Para obter detalhes consulte o Limiares.
+
+ **Análise dos resultados**
+
+ Um teste de breakpoint deve causar falha no sistema. O teste ajuda a identificar os pontos de falha do nosso sistema e como o sistema se comporta quando atinge seus limites.
+
+ Uma vez identificados os limites do sistema, a equipe tem duas opções: aceitá-los ou ajustar o sistema.
+
+ Se a decisão for aceitar os limites, os resultados dos testes ajudam as equipes a se prepararem e agirem quando o sistema estiver se aproximando desses limites.
+
+ Essas ações podem ser:
+
+     - Evitar atingir tais limites.
+
+     - Aumentar os recusos do sistema.
+
+     - Implementar ações corretivas para o comportamento do sistema em seu limite.
+
+     - Ajustar o sistema para ampliar seus limites.
+
+ Se a ação tomada for ajustar o sistema, ajuste e repita o teste de ponto de interrupção para descobrir onde e se os limites do sistema foram movidos.
+
+ Uma equipe deve determinar o número de repetições do teste de breakpoint, o quanto o sistema pode ser ajustado e até que ponto seus limites podem ser ajustados após cada exercício.
