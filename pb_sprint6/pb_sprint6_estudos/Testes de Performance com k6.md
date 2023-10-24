@@ -1,6 +1,6 @@
 ***Aqui estarão os estudos relacionados a todo o conteúdo de k6 em testes de performance da sprint 6 da PB Compass Uol.***
 
-# Curso Performance Test - Primeiros passos com K6
+# Curso Performance Test - Primeiros passos com K6 (Udemy)
 
  ## Tipos de teste de Performance (carga) segundo a documentação do k6
 
@@ -358,3 +358,53 @@ O teste deve ser interrompido antes de concluir a execução agendada. Você pod
  Se a ação tomada for ajustar o sistema, ajuste e repita o teste de ponto de interrupção para descobrir onde e se os limites do sistema foram movidos.
 
  Uma equipe deve determinar o número de repetições do teste de breakpoint, o quanto o sistema pode ser ajustado e até que ponto seus limites podem ser ajustados após cada exercício.
+
+
+# Curso Performance Testing: Introduction to k6 for Beginners (Udemy)
+ 
+ ## Testes de Performance
+ 
+ Teste de Performance não se trata só sobre encontrar os limites, mas, assegurar uma experiência eficiente e suave para todos os seus usuários. 
+     
+ Com testes de Performance, nosso objetivo é entender melhor como nossa aplicação se comporta lidando com usuários reais. 
+     
+ Executando testes de performance, nós conseguimos identificar e, esperançosamente, elimitar quaisquer gargalos antes desses problemas impactarem pessoas reais.
+
+ ## O que é escalabilidade
+
+ Tipicamente, sistemas que precisam escalar são muito complexos e feitos de várias partes móveis. Geralmente, chamamos esses sistemas de aplicações.
+
+ Aplicações rodam em servidores, servidores não são muito diferentes de computadores usuais. Quando uma aplicação ou um computador consome muito poder de computação po memória, isso pode levar o sistema a quebrar ou travar. 
+ 
+ O mesmo pode acontecer com um servidor rodando uma aplicação quando muitas pessoas estão tentando usá-lo ao mesmo tempo.
+
+ Então como um sistema/aplicação escala se precisar lidar com mais usuários? 
+     
+ - Escala Vertical: Isso acontece quando você impulsiona a capacidade de um único servidor adicionando mais memória ou usando um proessador mais rápido. 
+ 
+   Entretanto, escala vertical possui limites físicos, pois, quanto mais você escalar o seu servidor mais caro será escalar novamente, até chegar ao ponto de não fazer sentido escalar verticalmente.
+ 
+   Além do mais, em períodos de pouco uso você terá um monte de CPU e memória  simplesmetne não fazendo nada, ou seja, desperdiçados.
+
+ - Escala Horizontal: Acontece quando você adiciona mais servidores para lidar com o aumento de carga, distribuindo o tráfico entre eles. Escalar horizontalmente te permite usar multiplos servidores quando você possui uma alta carga, você usa mais servidores, quando sua carga diminui, você pode simplesmente usar menos servidores. Provedores de Nuvem fazem essa escala subir ou descer relativamente mais fácil e, ainda, pagando apenas pelos recursos que você estiver realmente usando. 
+ 
+   Chamamos  isso de *Escala Elástica* ou *Elastic Scaling*. 
+
+   
+ ### Monolítico e Microserviços 
+ 
+ Enquanto escala horizontal possa ser tentadora, as coisas não são tão simples na prática. Em particular, aplicações mais antigas tê tendencia a possuírem *arquitetura monolítica(Monolithic)*, significando que todos os componentes da aplicação estão fortemente acoplados e só podem ser implementados juntos em um servidor. 
+
+ Microserviços são outra abordagem de arquitetura de servidores onde uma aplicação é feita de componentes ou serviços pouco acoplados. Esta abordagem tem a vantagem de que cada servidor pode ser escalado para cima ou para baixo conforme a necessidade.
+
+ O que você precisa entender é que os custos de infraestrutura de servidores precisam ser otimizados.
+
+ Nenhuma empresa pode dispor de uma grande infraestrutura que é usada apenas em 10% de capacidade fora 2 semanas por ano, quando acontece algum evento popular e então os servidores são realmente usados grande capacidade. 
+ 
+ Entretanto, re-engenhar uma aplicação monolítica para transformá-la em microserviços pode também ter um custo muito alto. Então, comumente empresas precisam escolher entre pagar mais por servidores ou pagar por tempo de desenvolvimento na esperança que os custos de sua infraestrutura irão diminuir. Não há certo ou errado, cada aplicação pode possuir necessidades diferentes.
+
+
+# Demais anotações:
+
+ - Ramp-up e ramp-downs devem possuir 10% da duração dos testes, cada.
+ 
