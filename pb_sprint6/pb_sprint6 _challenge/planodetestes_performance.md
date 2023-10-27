@@ -18,26 +18,16 @@
 
  ## SMOKE TESTS OU TESTES DE FUMAÇA / CARGA MÍNIMA
 
- Será realizado um teste de carga mínima com 3 VUs em cada uma das rotas e no fluxo, a fim de se obter informações como: Se os scripts de testes estão sendo executados sem erros, conhecer as métricas de linha de base do sistema e se o ambiente do sistema está disponível.
+ Será realizado um teste de carga mínima com *2 VUs na rota login e no fluxo de testes*, a fim de se obter informações como: Se os scripts de testes estão sendo executados sem erros, conhecer as métricas de linha de base do sistema e se o ambiente do sistema está disponível.
 
  ## LOAD TESTS OU TESTES DE CARGA MÉDIA
 
- Será realizado um teste de carga média com 100 VUs em cada uma das rotas e no fluxo, a fim de se obter informações como: Como está o desempenho em uma carga típica e identificar se há sinais de degradação durante *ramp-up*.
+ Será realizado um teste de carga média com *500 VUs na rota usuario e no fluxo de testes*, a fim de se obter informações como: Como está o desempenho em uma carga típica e identificar se há sinais de degradação durante *ramp-up*.
 
  ## STRESS TESTS OU TESTES DE ESTRESSE
  
- Será realizado um teste de estresse, com carga de 500 VUs em cada uma das rotas e no fluxo, a fim de se obter informações como: Como está o desempenho em uma carga alta, como um dia de black friday, por um longo período de tempo e verificar se há degradação durante as fases de *ramp-up* e *ramp-down*.
-
- ## SOAK TESTS (???)
-
-
+ Será realizado um teste de estresse, com carga de *800 VUs na rota produtos e no fluxo de testes*, a fim de se obter informações como: Como está o desempenho em uma carga alta, como um dia de black friday, por um longo período de tempo e verificar se há degradação durante as fases de *ramp-up* e *ramp-down*.
 
  ## SPIKE TESTS OU TESTES DE PICO
 
- Será realizado um teste de pico, com a carga de 750 VUs em cada uma das rotas e no fluxo, a fim de se obter informações como: Como se comporta o desempenho em um súbito aumento de carga para níveis extremamente altos e verificar se há problemas e degradação durante esse curto espaço de tempo.
-
- ## BREAKPOINT TESTS (???)
-
-
-
-# CASOS DE TESTE
+ Será realizado um teste de pico, com a carga de *2000 VUs no fluxo de testes*, a fim de se obter informações como: Como se comporta o desempenho em um súbito aumento de carga para níveis extremamente altos e verificar se há problemas e degradação durante esse curto espaço de tempo.
