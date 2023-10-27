@@ -16,3 +16,8 @@ export default function () {//essa função representa a iteração de cada VU, 
     http.get('https://test.k6.io/news.php');
     sleep(2);
 }
+
+/*
+POR SER UM TESTE DE VALIDAÇÃO DO FUNCIONAMENTO DO SCRIPT DE TESTE,
+É RECOMENDÁVEL QUE O TESTE DE FUMAÇA SEJA O PRIMEIRO A SER FEITO.
+*/
