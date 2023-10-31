@@ -1,6 +1,6 @@
 {
     "users": [
-        {"email": "fulano@qa.com", "password": "teste"},
-        {"email": "fulano@qa.com", "password": "teste"}
+        {"email": "fulano1@qa.com", "password": "teste"},
+        {"email": "fulano1@qa.com", "password": "teste"}
     ]
 }
