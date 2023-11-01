@@ -1,6 +1,8 @@
 {
     "users": [
         {"email": "fulano1@qa.com", "password": "teste"},
-        {"email": "fulano1@qa.com", "password": "teste"}
+        {"email": "fulano2@qa.com", "password": "teste"},
+        {"email": "fulano3@qa.com", "password": "teste"},
+        {"email": "renato@compasser.com.br", "password": "amoacompass"}
     ]
 }
